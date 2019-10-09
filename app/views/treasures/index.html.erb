@@ -1,0 +1,7 @@
+<h2>Treasures</h2>
+
+<ul>
+<% @treasures.each do |treasure| %>
+    <li><%= "#{treasure.island.name}: #{treasure.location}" %></li>
+<% end %>
+</ul>

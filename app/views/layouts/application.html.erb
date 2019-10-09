@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pirately</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <h1>Pirate.ly</h1>
+    <nav>
+      <ul>
+        <li><button><%= link_to "Islands", islands_path %></button></li>
+        <% if @user && @user.id %>
+          <li><button><%= link_to "Treasures", treasures_path %></button></li>
+          <li><button><%= link_to "Logout", login_path, method: :delete %></button></li>
+        <% else %>
+          <li><button><%= link_to "Signup", signup_path %></button></li>
+          <li><button><%= link_to "Login", login_path %></button></li>
+        <% end %>
+      </ul>
+    </nav>
+    <%= yield %>
+  </body>
+</html>
